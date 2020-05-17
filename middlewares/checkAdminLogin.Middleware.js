@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 module.exports =(req,res,next)=>{
     
-    const token = req.headers['authorization-chutro'].split(' ')[1];
+    const token = req.headers['authorization-admin'].split(' ')[1];
     if(token){
         jwt.verify(token,'Secret',(err,decoded)=>{
             if(err){
@@ -11,10 +11,8 @@ module.exports =(req,res,next)=>{
                     error :err
             })
             }else{
-                if(decoded.quyen==="chuTro"){
-                    req.chuTro = decoded;
-                   
-                    
+                if(decoded.quyen==="admin"){
+                    req.admin = decoded;       
                     next();
                 }else{res.json({
                     message:"ban khong co quyen truy cap"
