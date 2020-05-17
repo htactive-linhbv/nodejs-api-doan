@@ -313,7 +313,7 @@ module.exports = {
                                               <w:anchorlock/>
                                               <center>
                                             <![endif]-->
-                                                <a href="http://localhost:8080/quantri/dichvu"
+                                                <a href="http://52.187.107.185/quantri/dichvu"
                                           style="background-color:#178f8f;border-radius:4px;color:#ffffff;display:inline-block;font-family:Helvetica, Arial, sans-serif;font-size:16px;font-weight:bold;line-height:50px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;">Truy cập trang Quản trị</a>
                                             <!--[if mso]>
                                               </center>
