@@ -113,6 +113,7 @@ module.exports = {
                 });
                 //mã hoá mật khảu
                 let randomPass = Math.random().toString(36).substring(5);
+                let host = 'http://khutro.xyz/quantri/dichvu'
                 const salt = bcrypt.genSaltSync(10);
                 const PasswardHash = bcrypt.hashSync(randomPass, salt)
 
@@ -308,11 +309,11 @@ module.exports = {
                                       <tr>
                                         <td>
                                           <div><!--[if mso]>
-                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://" style="height:50px;v-text-anchor:middle;width:200px;" arcsize="8%" stroke="f" fillcolor="#178f8f">
+                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://khutro.xyz/quantri/dichvu" style="height:50px;v-text-anchor:middle;width:200px;" arcsize="8%" stroke="f" fillcolor="#178f8f">
                                               <w:anchorlock/>
                                               <center>
                                             <![endif]-->
-                                                <a href="http://khutro.xyz/quantri/dichvu"
+                                                <a href=${host}
                                           style="background-color:#178f8f;border-radius:4px;color:#ffffff;display:inline-block;font-family:Helvetica, Arial, sans-serif;font-size:16px;font-weight:bold;line-height:50px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;">Truy cập trang Quản trị</a>
                                             <!--[if mso]>
                                               </center>
