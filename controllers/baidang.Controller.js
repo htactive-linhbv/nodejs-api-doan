@@ -6,17 +6,17 @@ const getMonth = require('date-fns/getMonth');
 const fs = require('fs')
 
 module.exports = {
-    getBaiDang:((req,res)=>{
+    getBaiDang: ((req, res) => {
         BaiDangs.find().populate([
             { path: 'khuTro_id' },
             { path: 'phongTro_id' },
 
         ]).then(response => {
-            let docF = response.sort(function(a, b) {
-              
+            let docF = response.sort(function (a, b) {
+
                 return new Date(b.ngayDang) - new Date(a.ngayDang)
             });
-            docF.forEach(docs=>{
+            docF.forEach(docs => {
                 docs._doc.ngayDang = `${getDate(docs.ngayDang)}.${getMonth(docs.ngayDang) + 1}.${getYear(docs.ngayDang)}`;
             })
             res.status(200).json({ data: docF })
@@ -32,7 +32,7 @@ module.exports = {
             { path: 'phongTro_id' },
 
         ]).then(response => {
-            response.forEach(docs=>{
+            response.forEach(docs => {
                 docs._doc.ngayDang = `${getDate(docs.ngayDang)}.${getMonth(docs.ngayDang) + 1}.${getYear(docs.ngayDang)}`;
             })
             res.status(200).json({ data: response })
@@ -40,13 +40,13 @@ module.exports = {
             res.status(400).json(err)
         })
     }),
-    getAdmin:((req,res)=>{
+    getAdmin: ((req, res) => {
         BaiDangs.find().populate([
             { path: 'khuTro_id' },
             { path: 'phongTro_id' },
 
         ]).then(response => {
-            response.forEach(docs=>{
+            response.forEach(docs => {
                 docs._doc.ngayDang = `${getDate(docs.ngayDang)}.${getMonth(docs.ngayDang) + 1}.${getYear(docs.ngayDang)}`;
             })
             res.status(200).json({ data: response })
@@ -56,11 +56,11 @@ module.exports = {
     }),
     getId: ((req, res) => {
         const id = req.params.id;
-        BaiDangs.find({_id:id}).populate([
+        BaiDangs.find({ _id: id }).populate([
             { path: 'khuTro_id' },
             { path: 'phongTro_id' },
         ]).then(response => {
-            res.status(200).json({data:response})
+            res.status(200).json({ data: response })
         }).catch(err => {
             res.status(400).json(err)
         })
@@ -93,8 +93,8 @@ module.exports = {
             if (err) {
                 res.status(400).json({ mesage: 'Không tìm thấy bài đăng' })
             } else {
-                doc.remove((err, response) => {
-                    if (err) {
+                doc.remove((errr, response) => {
+                    if (errr) {
                         res.status(400).json({ mesage: 'delete Thất bại' })
                     } else {
                         doc.images.forEach(element => {
